@@ -1,18 +1,28 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+#define entrada1  3
+#define entrada2  4
+#define entrada3  5
+#define salida  8
+
+void setup() 
+{
+  pinMode(entrada1,INPUT);
+  pinMode(entrada2,INPUT);
+  pinMode(entrada3,INPUT);
+  pinMode(salida,OUTPUT);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-}
+void loop() 
+{
+  if(digitalRead(entrada1) == 1 && digitalRead(entrada2) == 1 && digitalRead(entrada3) == 1)
+  {
+    digitalWrite(salida,HIGH);
+  }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  else
+  {
+    digitalWrite(salida,LOW);
+  }
 }
